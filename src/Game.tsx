@@ -187,23 +187,8 @@ function ActiveGame(props: {
   const [confirmed, setConfirmed] = useState(false);
 
   return (
-    <>
-      <header className="stats">
-        <div className="stat-container">
-          <div className="stat-component">
-            <span className="stat-component-name">Turn:</span>
-            <span className="stat-component-value">{turn + 1} / 5</span>
-          </div>
-
-          <div className="stat-component">
-            <span className="stat-component-name">Total score:</span>
-            <span className="stat-component-value">{score}</span>
-          </div>
-        </div>
-      </header>
-
-      <StationHeader station={station} />
-
+    <div style={{width:"100vw", height:"100vh", display:"flex", alignItems:"center"}}>
+      <div style={{width:"60%", height:"95%", marginRight:"1%", marginLeft:"1%"}}>
       <GameplayMap
         onClick={(guess) => {
           if (!confirmed) {
@@ -214,6 +199,15 @@ function ActiveGame(props: {
         guessConfirmed={confirmed}
         guess={guess}
       />
+      </div>
+
+      <div style={{textAlign:"center", marginRight:"1%", flexGrow:"2"}}>
+      <header style={{color:"black", fontSize:"1.6em", marginBottom:"1em"}}>
+          <span style={{fontWeight:900}}>TURN: </span>
+          <span >{turn + 1} / 5</span>
+      </header>
+
+      <StationHeader station={station} />
 
       <div className="buttons">
         {!confirmed && (
@@ -224,7 +218,7 @@ function ActiveGame(props: {
               setConfirmed(true);
             }}
           >
-            Confirm
+            SUBMIT GUESS
           </button>
         )}
         {confirmed && guess && turn !== 4 && (
@@ -250,7 +244,13 @@ function ActiveGame(props: {
           </button>
         )}
       </div>
-    </>
+
+      <header style={{color:"black", fontSize:"1.6em", marginBottom:"2em", marginTop:"30%"}}>
+          <span style={{fontWeight:900}}>TOTAL SCORE: </span>
+          <span >{score}</span>
+      </header>
+      </div>
+    </div>
   );
 }
 

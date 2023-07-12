@@ -22,7 +22,7 @@ export default {
       id: "background",
       type: "background",
       paint: {
-        "background-color": "#475569",
+        "background-color": "#f7f7f7",
       },
       interactive: true,
     },
@@ -33,7 +33,7 @@ export default {
       "source-layer": "landuse",
       filter: ["==", "class", "park"],
       paint: {
-        "fill-color": "#334155",
+        "fill-color": "#dbdbdc",
       },
       interactive: true,
     },
@@ -43,7 +43,7 @@ export default {
       source: "mapbox",
       "source-layer": "water",
       paint: {
-        "fill-color": "#0f172a",
+        "fill-color": "#d9d9d9",
       },
       interactive: true,
     },
